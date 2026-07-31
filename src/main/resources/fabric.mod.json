@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "permanent_paintings",
+	"version": "${version}",
+	"name": "Permanent Paintings",
+	"description": "Paintings now drop the exact variant that was placed, rather than randomizing themselves.",
+	"authors": [
+		"cassiancc"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/project/permanent-paintings",
+		"sources": "https://github.com/cassiancc/Permanent-Paintings",
+		"issues": "https://github.com/cassiancc/Permanent-Paintings/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/permanent_paintings/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"cc.cassian.paintings.PermanentPaintings"
+		]
+	},
+	"mixins": [
+		"permanent_paintings.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": ">26 <26.3",
+		"java": ">=25"
+	},
+	"recommends": {
+		"rrv": ">=8.7.0"
+	}
+}
