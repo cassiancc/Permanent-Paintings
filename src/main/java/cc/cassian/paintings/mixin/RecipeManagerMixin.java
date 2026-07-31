@@ -1,22 +1,9 @@
 package cc.cassian.paintings.mixin;
 
-import cc.cassian.paintings.PermanentPaintings;
-import cc.cassian.paintings.PermanentPaintingsTags;
 import com.llamalad7.mixinextras.sugar.Local;
-import net.minecraft.client.Minecraft;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponentPatch;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.tags.PaintingVariantTags;
 import net.minecraft.util.profiling.ProfilerFiller;
-import net.minecraft.world.entity.decoration.painting.PaintingVariant;
-import net.minecraft.world.item.ItemStackTemplate;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "permanent_paintings",
-	"version": "${version}",
-	"name": "Permanent Paintings",
-	"description": "Paintings now drop the exact variant that was placed, rather than randomizing themselves.",
+	"version": "${mod_version}",
+	"name": "${mod_name}",
+	"description": "${mod_description}",
 	"authors": [
 		"cassiancc"
 	],
@@ -16,7 +16,7 @@
 	"icon": "assets/permanent_paintings/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
+		"mru": [
 			"cc.cassian.paintings.PermanentPaintings"
 		]
 	},
@@ -24,7 +24,7 @@
 		"permanent_paintings.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.19.3",
+		"mru": ">=1.0.30",
 		"minecraft": ">26 <26.3",
 		"java": ">=25"
 	},

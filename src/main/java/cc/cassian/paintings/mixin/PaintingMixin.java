@@ -19,6 +19,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 
+import static cc.cassian.paintings.PermanentPaintings.CONFIG;
+
 @Mixin(Painting.class)
 public abstract class PaintingMixin extends HangingEntity {
 	@Shadow
@@ -30,6 +32,7 @@ public abstract class PaintingMixin extends HangingEntity {
 
 	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/painting/Painting;spawnAtLocation(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/world/entity/item/ItemEntity;"), method = "dropItem")
 	private ItemEntity init(Painting instance, ServerLevel serverLevel, ItemLike itemLike, Operation<ItemEntity> original) {
+		if (!CONFIG.paintingsDropWithVariant) return original.call(instance, serverLevel, itemLike);
 		var variant = instance.getVariant();
 		ItemStack stack = new ItemStack(itemLike.asItem().builtInRegistryHolder(), 1, DataComponentPatch.builder().set(DataComponents.PAINTING_VARIANT, variant).build());
 		return spawnAtLocation(serverLevel, stack);
@@ -37,7 +40,8 @@ public abstract class PaintingMixin extends HangingEntity {
 
 	@ModifyReturnValue(method = "getPickResult", at = @At(value = "RETURN"))
 	private ItemStack pick(ItemStack original) {
-		original.set(DataComponents.PAINTING_VARIANT, this.getVariant());
+		if (CONFIG.paintingsDropWithVariant)
+			original.set(DataComponents.PAINTING_VARIANT, this.getVariant());
 		return original;
 	}
 }
