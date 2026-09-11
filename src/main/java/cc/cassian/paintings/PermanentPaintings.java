@@ -32,6 +32,8 @@ public class PermanentPaintings implements CommonRegisterEvent {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final ModConfig CONFIG = ModConfig.createToml(Platform.INSTANCE.configPath(), "", MOD_ID, ModConfig.class);
+	public static HolderLookup.Provider registries;
+	public static ResourceManager resourceManager;
 
 	public static Identifier id(String path) {
 		return Identifier.fromNamespaceAndPath(MOD_ID, path);
@@ -47,8 +49,15 @@ public class PermanentPaintings implements CommonRegisterEvent {
 		});
 	}
 
+	public static HolderLookup.Provider registryAccess() {
+		return registries;
+	}
+
+	public static ResourceManager getResourceManager() {
+		return resourceManager;
+	}
+
 	@Override
 	public void onInitialize() {
-
 	}
 }

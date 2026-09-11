@@ -21,7 +21,7 @@ side="BOTH"
 [[dependencies.permanent_paintings]]
 modId="minecraft"
 type="required"
-versionRange="[26.1, 26.2]"
+versionRange="[26.3, 26.4]"
 ordering="NONE"
 side="BOTH"
 

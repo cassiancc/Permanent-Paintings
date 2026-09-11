@@ -30,11 +30,11 @@ public abstract class PaintingMixin extends HangingEntity {
 		super(type, level);
 	}
 
-	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/painting/Painting;spawnAtLocation(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/level/ItemLike;)Lnet/minecraft/world/entity/item/ItemEntity;"), method = "dropItem")
-	private ItemEntity init(Painting instance, ServerLevel serverLevel, ItemLike itemLike, Operation<ItemEntity> original) {
-		if (!CONFIG.paintingsDropWithVariant) return original.call(instance, serverLevel, itemLike);
+	@WrapOperation(at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/decoration/painting/Painting;spawnAtLocation(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;)Lnet/minecraft/world/entity/item/ItemEntity;"), method = "dropItem")
+	private ItemEntity init(Painting instance, ServerLevel serverLevel, ItemStack stack, Operation<ItemEntity> original) {
+		if (!CONFIG.paintingsDropWithVariant) return original.call(instance, serverLevel, stack);
 		var variant = instance.getVariant();
-		ItemStack stack = new ItemStack(itemLike.asItem().builtInRegistryHolder(), 1, DataComponentPatch.builder().set(DataComponents.PAINTING_VARIANT, variant).build());
+		stack.set(DataComponents.PAINTING_VARIANT, variant);
 		return spawnAtLocation(serverLevel, stack);
 	}
 
