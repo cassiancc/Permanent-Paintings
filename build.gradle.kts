@@ -160,7 +160,7 @@ publishMods {
 	version = "${property("mod_version")}+${property("deps.minecraft")}"
 	changelog = provider { rootProject.file("CHANGELOG-LATEST.md").readText() }
 	modLoaders.add("fabric")
-//	modLoaders.add("neoforge")
+	modLoaders.add("neoforge")
 
 	modrinth {
 		additionalFile(tasks.named<org.gradle.jvm.tasks.Jar>("sourcesJar")) {

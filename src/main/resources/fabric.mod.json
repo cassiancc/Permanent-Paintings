@@ -25,10 +25,10 @@
 	],
 	"depends": {
 		"mru": ">=1.0.30",
-		"minecraft": ">26 <26.3",
+		"minecraft": ">26.2 <26.4",
 		"java": ">=25"
 	},
 	"recommends": {
-		"rrv": ">=8.7.0"
+		"rrv": "*"
 	}
 }
