@@ -21,7 +21,7 @@ import static cc.cassian.paintings.PermanentPaintings.addRecipes;
 public abstract class RecipeManagerMixin {
 
 	@Inject(method = "<init>", at = @At(value = "HEAD", target = "Lnet/minecraft/core/HolderLookup;listElements()Ljava/util/stream/Stream;"))
-	private static void pick(HolderLookup.Provider registries, CallbackInfo ci) {
+	private static void captureRegistries(HolderLookup.Provider registries, CallbackInfo ci) {
 		PermanentPaintings.registries = registries;
 	}
 

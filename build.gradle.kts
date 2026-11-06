@@ -62,7 +62,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	implementation("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("deps.fabric_api").get()}")
-	implementation("cc.cassian.mru:mru-fabric:${property("deps.mru")}+${property("deps.minecraft")}"){
+	implementation("cc.cassian.asphodel:asphodel-api-fabric:${property("deps.asphodel")}+${property("deps.minecraft")}"){
+		exclude("net.fabricmc")
+	}
+	include("cc.cassian.asphodel:asphodel-api-fabric:${property("deps.asphodel")}+${property("deps.minecraft")}"){
 		exclude("net.fabricmc")
 	}
 	// Mod Menu
@@ -170,7 +173,6 @@ publishMods {
 		accessToken = env.MODRINTH_API_KEY.orNull()
 		minecraftVersions.add(property("deps.minecraft").toString())
 		minecraftVersions.addAll(additionalVersions)
-		requires("mru")
 		optional("mcqoy")
 		optional("rrv")
 		environment = SERVER_ONLY_CLIENT_OPTIONAL
@@ -183,7 +185,6 @@ publishMods {
 		accessToken = env.CURSEFORGE_API_KEY.orNull()
 		minecraftVersions.add(property("deps.minecraft").toString())
 		minecraftVersions.addAll(additionalVersions)
-		requires("mru")
 		optional("mcqoy")
 		optional("rrv")
 		client=true

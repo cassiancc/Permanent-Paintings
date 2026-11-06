@@ -1,1 +1,2 @@
-Port to 26.3.
+- Now depends on Asphodel API (bundled) rather than MRU.
+- Fixed crash with Reliable Recipes.

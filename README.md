@@ -17,7 +17,7 @@ All placeable paintings also now have dynamically generated stonecutting recipes
 Permanent Paintings is a serverside mod for 26.1 and 26.2. Its dependencies are listed below.
 
 ### Dependencies
-- [MRU](https://modrinth.com/mod/mru) is required.
+- [asphodel](https://modrinth.com/mod/asphodel) is required.
 - [McQoy](https://modrinth.com/mod/mcqoy) or [QoMC](https://modrinth.com/mod/qomc) is recommended to configure the mod.
 - [Reliable Recipe Viewer](https://modrinth.com/mod/rrv) is recommended to see recipes.
 

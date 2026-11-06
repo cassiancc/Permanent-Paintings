@@ -19,15 +19,15 @@ import static cc.cassian.paintings.PermanentPaintings.addRecipes;
 @Mixin(RecipeMap.class)
 public abstract class RecipeMapMixin {
 
-	@Inject(method = "create", at = @At(value = "INVOKE", target = "Lnet/minecraft/core/HolderLookup;listElements()Ljava/util/stream/Stream;"))
-	private static void pick(HolderLookup<Recipe<?>> recipes, CallbackInfoReturnable<RecipeMap> cir, @Local(name = "byType") ImmutableMultimap.Builder<RecipeType<?>, RecipeHolder<?>> byType, @Local(name = "byKey") ImmutableMap.Builder<ResourceKey<Recipe<?>>, RecipeHolder<?>> byKey) {
+	@Inject(method = "create", at = @At(value = "NEW", target = "(Lcom/google/common/collect/Multimap;Ljava/util/Map;)Lnet/minecraft/world/item/crafting/RecipeMap;"))
+	private static void modifyMap(HolderLookup<Recipe<?>> recipes, CallbackInfoReturnable<RecipeMap> cir, @Local(name = "byType") ImmutableMultimap.Builder<RecipeType<?>, RecipeHolder<?>> byType, @Local(name = "byKey") ImmutableMap.Builder<ResourceKey<Recipe<?>>, RecipeHolder<?>> byKey) {
 		ArrayList<RecipeHolder<?>> recipeHolders = new ArrayList<>();
 		addRecipes(PermanentPaintings.getResourceManager(), recipeHolders, PermanentPaintings.registryAccess());
 		recipeHolders.forEach(legacyRecipeHolder -> {
-			byType.put((legacyRecipeHolder.value()).getType(), legacyRecipeHolder);
-			byKey.put(legacyRecipeHolder.id(), legacyRecipeHolder);
+			if (!byKey.build().containsKey(legacyRecipeHolder.id())) {
+				byType.put((legacyRecipeHolder.value()).getType(), legacyRecipeHolder);
+				byKey.put(legacyRecipeHolder.id(), legacyRecipeHolder);
+			}
 		});
 	}
-
-
 }

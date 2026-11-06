@@ -2,6 +2,17 @@
   "jars": [
     {
       "identifier": {
+        "group": "cc.cassian.asphodel",
+        "artifact": "asphodel-api-neoforge"
+      },
+      "version": {
+        "range": "[1.1.1+26.3,)",
+        "artifactVersion": "1.1.1+26.3"
+      },
+      "path": "META-INF/jars/asphodel-api-neoforge-1.1.1+26.3.jar"
+    },
+    {
+      "identifier": {
         "group": "folk.sisby",
         "artifact": "kaleido-config"
       },

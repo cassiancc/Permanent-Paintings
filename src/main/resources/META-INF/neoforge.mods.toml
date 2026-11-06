@@ -9,7 +9,7 @@ version="${mod_version}"
 displayName="${mod_name}"
 description="${mod_description}"
 authors="cassiancc"
-mru="cc.cassian.paintings.PermanentPaintings"
+asphodel="cc.cassian.paintings.PermanentPaintings"
 
 [[dependencies.permanent_paintings]]
 modId="neoforge"
@@ -26,9 +26,9 @@ ordering="NONE"
 side="BOTH"
 
 [[dependencies.permanent_paintings]]
-modId="mru"
+modId="asphodel_api"
 type="required"
-versionRange="[1.0.40, )"
+versionRange="[1.1.0, )"
 ordering="NONE"
 side="BOTH"
 
