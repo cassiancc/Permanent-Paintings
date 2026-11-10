@@ -16,7 +16,7 @@
 	"icon": "assets/permanent_paintings/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"mru": [
+		"asphodel_common": [
 			"cc.cassian.paintings.PermanentPaintings"
 		]
 	},
@@ -24,7 +24,7 @@
 		"permanent_paintings.mixins.json"
 	],
 	"depends": {
-		"mru": ">=1.0.30",
+		"asphodel_api": ">=1.0.30",
 		"minecraft": ">26 <26.3",
 		"java": ">=25"
 	},

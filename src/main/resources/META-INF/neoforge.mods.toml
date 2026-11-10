@@ -9,19 +9,19 @@ version="${mod_version}"
 displayName="${mod_name}"
 description="${mod_description}"
 authors="cassiancc"
-mru="cc.cassian.paintings.PermanentPaintings"
+asphodel_common="cc.cassian.paintings.PermanentPaintings"
 
 [[dependencies.permanent_paintings]]
 modId="neoforge"
 type="required"
-versionRange="[26.1, 26.2]"
+versionRange="[26.1, 26.3]"
 ordering="NONE"
 side="BOTH"
 
 [[dependencies.permanent_paintings]]
 modId="minecraft"
 type="required"
-versionRange="[26.1, 26.2]"
+versionRange="[26.1, 26.3]"
 ordering="NONE"
 side="BOTH"
 

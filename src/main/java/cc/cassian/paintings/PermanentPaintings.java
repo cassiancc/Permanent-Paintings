@@ -1,7 +1,7 @@
 package cc.cassian.paintings;
 
-import cc.cassian.mru.Platform;
-import cc.cassian.mru.events.CommonRegisterEvent;
+import cc.cassian.asphodel.Platform;
+import cc.cassian.asphodel.events.CommonRegisterEvent;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentPatch;
